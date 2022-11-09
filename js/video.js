@@ -13,6 +13,7 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play video");
 	video.play();
+	document.querySelector("#volume").innerHTML = (video.volume * 100) + "%";
 })
 
 // clicking pause
@@ -35,10 +36,11 @@ document.querySelector("#mute").addEventListener("click", function() {
 	}
 })
 
-// moving the volume slider
-var slider = document.querySelector("#slider");
-	slider.addEventListener("volumechange", function(){
-	// video.volume = ;
+//changing volume on slider
+let volume = document.querySelector("#slider");
+volume.addEventListener("change", function(e) {
+	video.volume = e.currentTarget.value / 100;
+	document.querySelector("#volume").innerHTML = (video.volume * 100) + "%";
 	console.log("Change Volume");
 })
 
