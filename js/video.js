@@ -58,9 +58,11 @@ document.querySelector("#faster").addEventListener("click", function() {
 document.querySelector("#skip").addEventListener("click", skip);
 	function skip() {
 		video.currentTime += 10;
-		console.log("Current time is " + video.currentTime);
+		console.log("Video current time is " + video.currentTime);
 		if (video.onended = function() {
 			video.loop = false;
+			video.currentTime = 0
+			console.log("Video current time is " + video.currentTime);
 		});
 	}
 
@@ -70,7 +72,7 @@ document.querySelector("#vintage").addEventListener("click", function() {
 	console.log("Added the old school class");
 })
 
-//original
+//clicking original
 document.querySelector("#orig").addEventListener("click", function() {
 	video.classList.remove("oldSchool");
 	console.log("Removed the old school class");
