@@ -27,12 +27,12 @@ document.querySelector("#mute").addEventListener("click", function() {
 	if (video.muted === false) {
 		video.muted = true;
 		document.getElementById("mute").innerHTML = "Unmute";
-		console.log("Mute video is set to " + video.muted);
+		console.log("Mute video");
 	}
 	else {
 		video.muted = false;
 		document.getElementById("mute").innerHTML = "Mute";
-		console.log("Mute video is set to " + video.muted);
+		console.log("Unmute video");
 	}
 })
 
@@ -41,19 +41,21 @@ let volume = document.querySelector("#slider");
 volume.addEventListener("change", function(e) {
 	video.volume = e.currentTarget.value / 100;
 	document.querySelector("#volume").innerHTML = (video.volume * 100) + "%";
-	console.log("Change Volume");
+	console.log("The current value is " + video.volume);
 })
 
 // clicking slow down
 document.querySelector("#slower").addEventListener("click", function() {
-	video.playbackRate -= 0.1;
-	console.log("The video speed is " + video.playbackRate);
+	console.log("Slow down video");
+	video.playbackRate *= 0.9;
+	console.log("Speed is " + video.playbackRate);
 })
 
 //clicking speed up
 document.querySelector("#faster").addEventListener("click", function() {
-	video.playbackRate += 0.1;
-	console.log("The video speed is " + video.playbackRate)
+	console.log("Speed up video");
+	video.playbackRate *= (10/9);
+	console.log("Speed is " + video.playbackRate)
 })
 
 //clicking skip ahead
