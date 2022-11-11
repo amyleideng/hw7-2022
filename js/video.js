@@ -42,6 +42,7 @@ volume.addEventListener("change", function(e) {
 	video.volume = e.currentTarget.value / 100;
 	document.querySelector("#volume").innerHTML = (video.volume * 100) + "%";
 	console.log("The current value is " + video.volume);
+	console.log(document.querySelector("#volume"));
 })
 
 // clicking slow down
@@ -54,7 +55,7 @@ document.querySelector("#slower").addEventListener("click", function() {
 //clicking speed up
 document.querySelector("#faster").addEventListener("click", function() {
 	console.log("Speed up video");
-	video.playbackRate *= (10/9);
+	video.playbackRate /= 0.9;
 	console.log("Speed is " + video.playbackRate)
 })
 
